@@ -47,6 +47,15 @@
       "method": "cook",
       "cookingTime": "30minutes",
       "id": "pMQVamq"
+    },
+    {
+      "title": "pasta",
+      "ingredients": [
+        "tomato"
+      ],
+      "method": "cook",
+      "cookingTime": "30minutes",
+      "id": "qARx5VC"
     }
   ]
 }
