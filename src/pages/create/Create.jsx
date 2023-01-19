@@ -43,7 +43,7 @@ const Create = () => {
     if (data) {
       setTimeout(() => {
         history.push("/");
-      }, 2000);
+      }, 500);
     }
   }, [data, history]);
 
