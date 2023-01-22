@@ -1,4 +1,7 @@
 import { Link } from "react-router-dom";
+import Trashcan from "../assets/trashcan.svg";
+import { projectFirestore } from "../firebase/config";
+
 //styles
 import "./recipeList.css";
 
@@ -11,6 +14,10 @@ const RecipeList = ({ recipes }) => {
     return <div className="error">No recipes to load...</div>;
   }
 
+  const handleClick = (id) => {
+    projectFirestore.collection("recipes").doc(id).delete();
+  };
+
   return (
     <div className="recipe-list">
       {recipes.map((recipe) => (
@@ -19,6 +26,13 @@ const RecipeList = ({ recipes }) => {
           <p>{recipe.cookingTime} to make.</p>
           <div>{recipe.method.substring(0, 80)}...</div>
           <Link to={`/recipes/${recipe.id}`}>Cook This</Link>
+          <img
+            className="delete"
+            src={Trashcan}
+            alt="trashcan"
+            onClick={() => handleClick(recipe.id)}
+          />
+          {/*we need to pass an id to this function to delete the specific one */}
         </div>
       ))}
     </div>
